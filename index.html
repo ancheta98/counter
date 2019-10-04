@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+  <body>
+      <p>step one: user visits the page and sees some text</p>
+      <p>step two: user presses one of these buttons</p>
+      <p>step three: button should do something</p>
+      <p>step four: button should change counter</p>
+      <p>step five: when counter changes html should update</p>
+    <h1>Press the button to increment or decrement the counter!</h1>
+    <p id="counter">Count is: 0</p>
+    <!-- TODO: look up click listeners to capture the button clicks! -->
+    <!-- TODO: Increment the counter -->
+    <button id="increment">Increment</button>
+    <button id="decrement">Decrement</button>
+    <!-- ID for one specific thing -->
+    <!-- Class for many similar things -->
+    <ul>
+      <li class="myClass">1</li>
+      <li class="myClass">2</li>
+      <li class="myClass">3</li>
+      <li class="myClass">4</li>
+      <li class="myClass">5</li>
+    </ul>
+    <input type="text"/>
+
+    <script>
+      // ctrl+ ? ==> comment out something
+      // vanilla/plain javascript = javascript without plugins or libraries
+      // jQUery is a javascript library
+      //TODO: change the p tag with ID counter every time the user clicks a button
+      var count = 0;
+        // function declaration => fancy tern for "I made a function"
+      function increment() {
+        count++;
+        console.log(count)
+        // grab the element we want
+        // using .html to change the text
+        document.getElementById("counter").innerHTML = "Count is: " + count;
+      }
+
+    //   function decrement() {
+    //     count--;
+    //     // grab the element we want
+    //     // using .html to change the text
+    //     document.getElementById("counter").innerHTML = "Count is: " + count;
+    //   }
+
+      //grab the element that we want to make clickable
+      // making a function that immediately fires off once a user clicks this button
+      var incrementElement = document.getElementById("increment");
+      incrementElement.onclick = function(e) {
+        // alert("clicked increment");
+        // console.log("incrementing")
+        // console.log(count)
+        //function invocation => "I used the function"
+        increment();
+  
+      };
+      //grab the element that we want to make clickable
+      // making a function that immediately fires off once a user clicks this button
+      // function with no name is called an anonymous function
+      document.getElementById("decrement").onclick = function(event) {
+        // console.log(event);
+        // alert("clicked decrement");
+        count--;
+        console.log(count)
+        document.getElementById("counter").innerHTML = "Count is: " + count;
+        // console.log("decrementing")
+        // console.log(count)
+      };
+
+
+      //   jquery way
+      //   $("#increment").click(function() {
+      //     increment();
+      //   });
+      $("input").keypress(function(event) {
+        console.log(event)
+      });
+    </script>
+  </body>
+</html>
